@@ -108,7 +108,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
                 height = 200;
                 // placeholder for poster image before loading it
                 Glide.with(context)
-                        .load("https://courses.codepath.com/course_files/android_university_fast_track/assets/flicks_backdrop_placeholder.gif")
+                        .load("")
                         .placeholder(R.drawable.flicks_backdrop_placeholder)
                         .override(width, height)
                         .into(ivPoster);
@@ -116,13 +116,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             }else{
                 // placeholder for poster image before loading it
                 Glide.with(context)
-                        .load("https://courses.codepath.com/course_files/android_university_fast_track/assets/flicks_movie_placeholder.gif")
+                        .load("")
                         .override(width, height)
                         .placeholder(R.drawable.flicks_movie_placeholder)
                         .into(ivPoster);
                 imageUrl = movie.getPosterPath();
             }
-
 
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
