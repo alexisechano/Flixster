@@ -97,27 +97,30 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
         }
 
         public void bind(Movie movie) {
-            // image rounding with Glide
-            int radius = 1; // corner radius, higher value = more rounded
-            int margin = 0; // crop margin, set to 0 for corners with no crop
-
-
+            int radius = 20;
+            int margin = 10;
+            int width = 200;
+            int height = 300;
             String imageUrl;
+
             if(context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-                imageUrl = movie.getBackdropPath();
+                width = 300;
+                height = 200;
+                // placeholder for poster image before loading it
                 Glide.with(context)
                         .load("https://courses.codepath.com/course_files/android_university_fast_track/assets/flicks_backdrop_placeholder.gif")
                         .placeholder(R.drawable.flicks_backdrop_placeholder)
-                        .override(300, 200)
+                        .override(width, height)
                         .into(ivPoster);
+                imageUrl = movie.getBackdropPath();
             }else{
-                imageUrl = movie.getPosterPath();
-                // placeholder for poster image
+                // placeholder for poster image before loading it
                 Glide.with(context)
                         .load("https://courses.codepath.com/course_files/android_university_fast_track/assets/flicks_movie_placeholder.gif")
-                        .override(200, 300)
+                        .override(width, height)
                         .placeholder(R.drawable.flicks_movie_placeholder)
                         .into(ivPoster);
+                imageUrl = movie.getPosterPath();
             }
 
 
@@ -128,7 +131,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             // use glide
             Glide.with(context)
                     .load(imageUrl)
+                    .override(width, height)
+                    .centerCrop()
+                    .transform(new RoundedCornersTransformation(radius, margin))
                     .into(ivPoster);
+
         }
     }
 }
