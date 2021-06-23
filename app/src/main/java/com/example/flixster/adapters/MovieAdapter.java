@@ -124,7 +124,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             }
 
 
-
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
 
