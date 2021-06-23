@@ -16,6 +16,9 @@ public class Movie {
     String overview;
     String backdropPath;
 
+    // for ratings
+    Double voteAverage;
+
     // no-arg, empty constructor required for Parceler
     public Movie() {}
 
@@ -25,6 +28,7 @@ public class Movie {
         title = jsonObject.getString("title");
         overview = jsonObject.getString("overview");
         backdropPath = jsonObject.getString("backdrop_path");
+        voteAverage = jsonObject.getDouble("vote_average");
     }
 
     // create a func to load array
@@ -37,6 +41,10 @@ public class Movie {
     }
 
     // getter methods
+    public Double getVoteAverage() {
+        return voteAverage;
+    }
+
     public String getPosterPath() {
         return String.format("https://image.tmdb.org/t/p/w342/%s", posterPath);
     }
