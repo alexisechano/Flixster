@@ -16,8 +16,9 @@ public class Movie {
     String overview;
     String backdropPath;
 
-    // for ratings
+    // for more information
     Double voteAverage;
+    String releaseDate;
 
     // no-arg, empty constructor required for Parceler
     public Movie() {}
@@ -29,6 +30,7 @@ public class Movie {
         overview = jsonObject.getString("overview");
         backdropPath = jsonObject.getString("backdrop_path");
         voteAverage = jsonObject.getDouble("vote_average");
+        releaseDate = jsonObject.getString("release_date");
     }
 
     // create a func to load array
@@ -41,6 +43,10 @@ public class Movie {
     }
 
     // getter methods
+    public String getReleaseDate() {
+        return "Release Date: " + releaseDate;
+    }
+
     public Double getVoteAverage() {
         return voteAverage;
     }

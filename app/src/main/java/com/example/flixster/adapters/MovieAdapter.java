@@ -23,6 +23,8 @@ import org.parceler.Parcels;
 
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     Context context;
     List<Movie> movies;
@@ -95,6 +97,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
         }
 
         public void bind(Movie movie) {
+            // image rounding with Glide
+            int radius = 1; // corner radius, higher value = more rounded
+            int margin = 0; // crop margin, set to 0 for corners with no crop
+
+
             String imageUrl;
             if(context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
                 imageUrl = movie.getBackdropPath();
@@ -119,7 +126,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             tvOverview.setText(movie.getOverview());
 
             // use glide
-            Glide.with(context).load(imageUrl).into(ivPoster);
+            Glide.with(context)
+                    .load(imageUrl)
+                    .into(ivPoster);
         }
     }
 }
