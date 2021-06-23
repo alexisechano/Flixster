@@ -3,12 +3,14 @@ package com.example.flixster.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.os.Handler;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -111,6 +113,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
                         .load("")
                         .placeholder(R.drawable.flicks_backdrop_placeholder)
                         .override(width, height)
+                        .centerCrop()
+                        .transform(new RoundedCornersTransformation(radius, margin))
                         .into(ivPoster);
                 imageUrl = movie.getBackdropPath();
             }else{
@@ -126,6 +130,23 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
 
+            // to show placeholder works -> internet cutting out does not work
+            /* Handler handler = new Handler();
+            int h = height;
+            int w = width;
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    // use glide
+                    Glide.with(context)
+                            .load(imageUrl)
+                            .override(w, h)
+                            .centerCrop()
+                            .transform(new RoundedCornersTransformation(radius, margin))
+                            .into(ivPoster);
+                }
+
+            }, 500); // 1/2 second delay */
+
             // use glide
             Glide.with(context)
                     .load(imageUrl)
@@ -133,6 +154,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
                     .centerCrop()
                     .transform(new RoundedCornersTransformation(radius, margin))
                     .into(ivPoster);
+
+
 
         }
     }
