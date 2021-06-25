@@ -26,6 +26,7 @@ The following **additional** features are implemented:
 
 * [x] Added some extra styling on movie details activity
 * [x] Added support for all orientations for YouTube video player
+* [x] Declare a new field on Movie to store the video id and use it to avoid fetching the same value more than once
 
 ## Video Walkthrough
 
