@@ -69,14 +69,33 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/ivTrailer"
-        android:layout_width="wrap_content"
+
+    <RelativeLayout
+        android:id="@+id/ivLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvOverview"
-        android:layout_marginTop="25dp"
         android:gravity="center"
-        app:srcCompat="@drawable/flicks_backdrop_placeholder" />
+        android:weightSum="10">
+
+
+        <ImageView
+            android:id="@+id/ivTrailer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="2dp"
+            app:srcCompat="@drawable/flicks_backdrop_placeholder" />
+
+        <ImageView
+            android:id="@+id/imgPlayVideo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
+            android:src="@drawable/play" />
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

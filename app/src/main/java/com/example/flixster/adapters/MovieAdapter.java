@@ -100,7 +100,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
         public void bind(Movie movie) {
             int radius = 20;
-            int margin = 10;
+            int margin = 0;
             int width = 200;
             int height = 300;
             String imageUrl;
@@ -113,7 +113,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
                         .load("")
                         .placeholder(R.drawable.flicks_backdrop_placeholder)
                         .override(width, height)
-                        .centerCrop()
+                        .centerInside()
                         .transform(new RoundedCornersTransformation(radius, margin))
                         .into(ivPoster);
                 imageUrl = movie.getBackdropPath();
@@ -122,6 +122,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
                 Glide.with(context)
                         .load("")
                         .override(width, height)
+                        .centerInside()
                         .placeholder(R.drawable.flicks_movie_placeholder)
                         .into(ivPoster);
                 imageUrl = movie.getPosterPath();
@@ -151,7 +152,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             Glide.with(context)
                     .load(imageUrl)
                     .override(width, height)
-                    .centerCrop()
+                    .centerInside()
                     .transform(new RoundedCornersTransformation(radius, margin))
                     .into(ivPoster);
 

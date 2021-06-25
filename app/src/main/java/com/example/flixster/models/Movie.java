@@ -20,6 +20,9 @@ public class Movie {
     Double voteAverage;
     String releaseDate;
 
+    // youtube video
+    Integer id;
+
     // no-arg, empty constructor required for Parceler
     public Movie() {}
 
@@ -31,6 +34,9 @@ public class Movie {
         backdropPath = jsonObject.getString("backdrop_path");
         voteAverage = jsonObject.getDouble("vote_average");
         releaseDate = jsonObject.getString("release_date");
+
+        // for the youtube video
+        id = jsonObject.getInt("id");
     }
 
     // create a func to load array
@@ -53,6 +59,11 @@ public class Movie {
 
     public String getPosterPath() {
         return String.format("https://image.tmdb.org/t/p/w342/%s", posterPath);
+    }
+
+    // for youtube video
+    public Integer getId() {
+        return id;
     }
 
     public String getBackdropPath() {

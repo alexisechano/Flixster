@@ -26,7 +26,7 @@ import okhttp3.Headers;
 
 public class MainActivity extends AppCompatActivity {
     // url constant
-    public static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    public static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=";
 
     // TAG for logging information
     public static final String TAG = "MainActivity";
@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         RecyclerView rvMovies = findViewById(R.id.rvMovies);
         movies = new ArrayList<>();
+
+        // get my API Keys
+        String MOVIE_API_KEY = getString(R.string.movie_api_key);
 
         // Send message
         Toast.makeText(getApplicationContext(), "Connecting...", Toast.LENGTH_SHORT).show();
@@ -57,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
         AsyncHttpClient client = new AsyncHttpClient();
 
         // get information using client and JSON handler
-        client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
+        String curr_url = NOW_PLAYING_URL + MOVIE_API_KEY;
+        client.get(curr_url, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Headers headers, JSON json) {
                 Log.d(TAG, "onSuccess");
