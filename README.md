@@ -36,11 +36,11 @@ Here's a walkthrough of implemented user stories:
 <img src='walkthrough1.gif' title='Video Walkthrough - Vertical' width='' alt='Video Walkthrough Vertical' />
 <img src='walkthrough2.gif' title='Video Walkthroug - Horizontal' width='' alt='Video Walkthrough Horizontal' />
 
-GIF created with [Kap](https://getkap.co/).
+GIFs created with [Kap](https://getkap.co/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Most of my challenges and blockers definitely arose during the bonus user story section and tweaking the UI. First, the YouTube video feature was the most convoluted for me especially because the process was different from our usual listener -> intent code. Figuring that out using the guide and Google was a way to unblock myself, but it took quite a while. Then, in addition to the backend side of the movie trailer addition, I was having issues formatting the image views on top of one other and using the layout gravity attribute to properly organize the UI elements. I did figure it out in the end after referring to docs and CodePath notes!
 
 ## Open-source libraries used
 
