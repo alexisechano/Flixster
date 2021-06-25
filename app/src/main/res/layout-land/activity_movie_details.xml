@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="30dp"
+    android:layout_marginTop="40dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     tools:context="com.example.flixster.MovieDetailsActivity">
@@ -33,7 +33,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:gravity="center"
-        android:text="Reviews" />
+        android:text="Overview" />
 
     <TextView
         android:id="@+id/tvDate"

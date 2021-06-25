@@ -101,18 +101,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
         public void bind(Movie movie) {
             int radius = 20;
             int margin = 0;
-            int width = 200;
-            int height = 300;
             String imageUrl;
 
             if(context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-                width = 300;
-                height = 200;
                 // placeholder for poster image before loading it
                 Glide.with(context)
                         .load("")
                         .placeholder(R.drawable.flicks_backdrop_placeholder)
-                        .override(width, height)
                         .centerInside()
                         .transform(new RoundedCornersTransformation(radius, margin))
                         .into(ivPoster);
@@ -121,7 +116,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
                 // placeholder for poster image before loading it
                 Glide.with(context)
                         .load("")
-                        .override(width, height)
                         .centerInside()
                         .placeholder(R.drawable.flicks_movie_placeholder)
                         .into(ivPoster);
@@ -133,15 +127,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
             // to show placeholder works -> internet cutting out does not work
             /* Handler handler = new Handler();
-            int h = height;
-            int w = width;
             handler.postDelayed(new Runnable() {
                 public void run() {
                     // use glide
                     Glide.with(context)
                             .load(imageUrl)
-                            .override(w, h)
-                            .centerCrop()
+                            .centerInside()
                             .transform(new RoundedCornersTransformation(radius, margin))
                             .into(ivPoster);
                 }
@@ -151,12 +142,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             // use glide
             Glide.with(context)
                     .load(imageUrl)
-                    .override(width, height)
                     .centerInside()
+                    .fitCenter()
                     .transform(new RoundedCornersTransformation(radius, margin))
                     .into(ivPoster);
-
-
 
         }
     }
