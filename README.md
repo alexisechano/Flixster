@@ -33,8 +33,8 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='walkthrough1.gif' title='Video Walkthrough - Vertical' width='' alt='Video Walkthrough Vertical' />
-<img src='walkthrough2.gif' title='Video Walkthroug - Horizontal' width='' alt='Video Walkthrough Horizontal' />
+<img src='walkthrough.gif' title='Video Walkthrough - Vertical' width='' alt='Video Walkthrough Vertical' />
+<img src='walkthrough2.gif' title='Video Walkthrough - Horizontal' width='' alt='Video Walkthrough Horizontal' />
 
 GIFs created with [Kap](https://getkap.co/).
 
